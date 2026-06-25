@@ -1,0 +1,42 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = '沖縄の現場から見えるリアルを、世界へ届ける' } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title} | 琉球のタネ</title>
+  <meta name="description" content={description} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/global.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="/ja/" class="site-title">
+        <span class="logo-main">琉球のタネ</span>
+        <span class="logo-sub">Ryukyu no Tane</span>
+      </a>
+      <nav class="lang-nav">
+        <a href="/ja/">JP</a>
+        <a href="/en/">EN</a>
+      </nav>
+    </div>
+    <nav class="series-nav">
+      <a href="/ja/series-f/">🎙 沖縄の記憶</a>
+    </nav>
+  </header>
+  <main>
+    <slot />
+  </main>
+  <footer>
+    <p>© 2026 琉球のタネ / Kaname Sadoyama</p>
+  </footer>
+</body>
+</html>

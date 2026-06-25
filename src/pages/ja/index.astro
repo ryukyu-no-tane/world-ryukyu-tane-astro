@@ -1,0 +1,26 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="琉球のタネ">
+  <div class="hero">
+    <h1>沖縄の現場から見えるリアルを、世界へ届ける</h1>
+    <p class="by">by 佐渡山 要 / Kaname Sadoyama</p>
+  </div>
+  <section>
+    <h2>🎙 沖縄の記憶</h2>
+    <ul>
+      <li><a href="/ja/series-f/2026-06-25-sata-andagi/">サーターアンダギーと廃油の記憶</a></li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+.hero { text-align: center; padding: 3rem 0 2rem; }
+.hero h1 { font-size: 1.6rem; }
+.by { color: #999; margin-top: 0.5rem; }
+h2 { margin: 2rem 0 1rem; }
+ul { list-style: none; }
+li { padding: 0.5rem 0; border-bottom: 1px solid #eee; }
+a { color: #1a1a2e; text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>

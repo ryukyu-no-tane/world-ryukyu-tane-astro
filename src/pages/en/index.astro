@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Ryukyu no Tane" lang="en">
+  <div class="hero">
+    <h1>Sharing stories and practical knowledge from Okinawa with the world</h1>
+  </div>
+  <section>
+    <h2>📰 Latest News</h2>
+    <ul>
+      <li>
+        <span class="date">July 28, 2026</span>
+        <a href="/en/news/260708-tosyokan/">Connecting Hearts and Expanding Learning Through School Libraries</a>
+      </li>
+      <li>
+        <span class="date">June 11, 2026</span>
+        <a href="/en/news/260611-kcs/">The First Regional Partnership Meeting of FY2026</a>
+      </li>
+      <li>
+        <span class="date">May 23, 2026</span>
+        <a href="/en/news/260523-unnachu/">Creating Opportunities That Unlock Children's Potential</a>
+      </li>
+    </ul>
+  </section>
+</BaseLayout>
+
+<style>
+.hero { text-align: center; padding: 3rem 0 2rem; }
+.hero h1 { font-size: 1.6rem; }
+h2 { margin: 2rem 0 1rem; }
+ul { list-style: none; }
+li { padding: 0.75rem 0; border-bottom: 1px solid var(--border, #eee); }
+.date { display: block; color: #777; font-size: 0.8rem; }
+a { color: var(--link, #1a1a2e); text-decoration: none; }
+a:hover { text-decoration: underline; }
+</style>

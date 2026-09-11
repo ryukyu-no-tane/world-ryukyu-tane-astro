@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { marked } from 'marked';
+import { readFileSync } from 'fs';
+import { resolve } from 'path';
+
+interface Props {
+  sourcePath: string;
+  title: string;
+  description: string;
+  lang: 'ja' | 'en';
+  dateLabel: string;
+  jpHref: string;
+  enHref: string;
+}
+
+const { sourcePath, title, description, lang, dateLabel, jpHref, enHref } = Astro.props;
+const raw = readFileSync(resolve(sourcePath), 'utf-8');
+const body = raw.replace(/^---[\s\S]*?---\n/, '');
+const html = marked(body);
+---
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  jpHref={jpHref}
+  enHref={enHref}
+>
+  <p class="article-meta">
+    {dateLabel} ｜ {lang === 'en' ? '📰 From News Ryukyu no Tane' : '📰 News 琉球のタネから'}
+  </p>
+  <p class="translation-link">
+    <a href={lang === 'en' ? jpHref : enHref}>
+      {lang === 'en' ? '日本語で読む' : 'Read in English'}
+    </a>
+  </p>
+  <div class="article-body" set:html={html} />
+</BaseLayout>
+
+<style>
+.translation-link { margin: -1rem 0 2rem; font-size: 0.95rem; }
+</style>

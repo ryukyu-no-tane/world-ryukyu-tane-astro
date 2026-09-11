@@ -2,16 +2,37 @@
 interface Props {
   title: string;
   description?: string;
+  lang?: 'ja' | 'en';
+  jpHref?: string;
+  enHref?: string;
 }
-const { title, description = '沖縄の現場から見えるリアルを、世界へ届ける' } = Astro.props;
+const {
+  title,
+  lang = 'ja',
+  jpHref = '/ja/',
+  enHref = '/en/',
+} = Astro.props;
+const isEnglish = lang === 'en';
+const description = Astro.props.description ?? (
+  isEnglish
+    ? 'Stories and practical knowledge from communities across Okinawa.'
+    : '沖縄の現場から見えるリアルを、世界へ届ける'
+);
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+const jpUrl = new URL(jpHref, Astro.site);
+const enUrl = new URL(enHref, Astro.site);
 ---
 <!DOCTYPE html>
-<html lang="ja">
+<html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} | 琉球のタネ</title>
+  <title>{title} | {isEnglish ? 'Ryukyu no Tane' : '琉球のタネ'}</title>
   <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  <link rel="alternate" hreflang="ja" href={jpUrl} />
+  <link rel="alternate" hreflang="en" href={enUrl} />
+  <link rel="alternate" hreflang="x-default" href={jpUrl} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/styles/global.css" />
@@ -19,36 +40,38 @@ const { title, description = '沖縄の現場から見えるリアルを、世�
 <body>
   <header>
     <div class="header-inner">
-      <a href="/ja/" class="site-title">
+      <a href={isEnglish ? '/en/' : '/ja/'} class="site-title">
         <span class="logo-main">琉球のタネ</span>
         <span class="logo-sub">Ryukyu no Tane</span>
       </a>
       <nav class="lang-nav">
-        <a href="/ja/">JP</a>
-        <a href="/en/">EN</a>
+        <a href={jpHref}>JP</a>
+        <a href={enHref}>EN</a>
       </nav>
     </div>
     <nav class="series-nav">
-      <a href="/ja/news/260708-tosyokan/">📰 最新記事</a>
-      <a href="/ja/series-f/">🎙 沖縄の記憶</a>
+      <a href={isEnglish ? '/en/news/260708-tosyokan/' : '/ja/news/260708-tosyokan/'}>
+        {isEnglish ? '📰 Latest News' : '📰 最新記事'}
+      </a>
+      {!isEnglish && <a href="/ja/series-f/">🎙 沖縄の記憶</a>}
     </nav>
   </header>
 
   <!-- 表示設定パネル -->
   <div class="ui-controls" id="uiControls">
-    <button class="ui-toggle" id="uiToggle" title="表示設定">⚙️</button>
+    <button class="ui-toggle" id="uiToggle" title={isEnglish ? 'Display settings' : '表示設定'}>⚙️</button>
     <div class="ui-panel" id="uiPanel">
-      <p class="ui-label">文字サイズ</p>
+      <p class="ui-label">{isEnglish ? 'Font size' : '文字サイズ'}</p>
       <div class="ui-row">
         <button onclick="changeFontSize(-1)">A-</button>
-        <button onclick="changeFontSize(0)">標準</button>
+        <button onclick="changeFontSize(0)">{isEnglish ? 'Default' : '標準'}</button>
         <button onclick="changeFontSize(1)">A+</button>
       </div>
-      <p class="ui-label">カラー</p>
+      <p class="ui-label">{isEnglish ? 'Color' : 'カラー'}</p>
       <div class="ui-row">
-        <button onclick="changeTheme('default')" class="theme-btn default">標準</button>
-        <button onclick="changeTheme('dark')" class="theme-btn dark">ダーク</button>
-        <button onclick="changeTheme('warm')" class="theme-btn warm">温かみ</button>
+        <button onclick="changeTheme('default')" class="theme-btn default">{isEnglish ? 'Default' : '標準'}</button>
+        <button onclick="changeTheme('dark')" class="theme-btn dark">{isEnglish ? 'Dark' : 'ダーク'}</button>
+        <button onclick="changeTheme('warm')" class="theme-btn warm">{isEnglish ? 'Warm' : '温かみ'}</button>
       </div>
     </div>
   </div>
@@ -60,8 +83,12 @@ const { title, description = '沖縄の現場から見えるリアルを、世�
   <footer>
     <p>© 2026 琉球のタネ / Ryukyu no Tane</p>
     <p class="site-switch">
-      現在：<strong>Astro版（試験中）</strong> ／
-      <a href="https://world.ryukyu-tane.com/ja/">Hugo版に切り替える →</a>
+      {isEnglish ? 'Current: ' : '現在：'}
+      <strong>{isEnglish ? 'Astro experimental version' : 'Astro版（試験中）'}</strong>
+      {' ／ '}
+      <a href={isEnglish ? 'https://world.ryukyu-tane.com/en/' : 'https://world.ryukyu-tane.com/ja/'}>
+        {isEnglish ? 'Switch to the Hugo version →' : 'Hugo版に切り替える →'}
+      </a>
     </p>
   </footer>
 

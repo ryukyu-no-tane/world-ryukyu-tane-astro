@@ -1,20 +1,12 @@
 ---
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { marked } from 'marked';
-import { readFileSync } from 'fs';
-import { resolve } from 'path';
-
-const raw = readFileSync(
-  resolve('src/content/blog/ja/news/2026-07-28-260708-tosyokan.md'),
-  'utf-8'
-);
-const body = raw.replace(/^---[\s\S]*?---\n/, '');
-const html = marked(body);
+import NewsArticle from '../../../components/NewsArticle.astro';
 ---
-<BaseLayout
+<NewsArticle
+  sourcePath="src/content/blog/ja/news/2026-07-28-260708-tosyokan.md"
   title="中部学校図書館協議会 研修会への登壇報告"
   description="中部学校図書館協議会の研修会で、学校図書館、MI理論、AIと日本十進分類法をつなぐ実践について話題提供しました。"
->
-  <p class="article-meta">2026年7月28日 ｜ 📰 News 琉球のタネから</p>
-  <div class="article-body" set:html={html} />
-</BaseLayout>
+  lang="ja"
+  dateLabel="2026年7月28日"
+  jpHref="/ja/news/260708-tosyokan/"
+  enHref="/en/news/260708-tosyokan/"
+/>

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "site": "https://world2.ryukyu-tane.com",
+  "generated_at": "2026-09-11T00:24:44Z",
+  "generator": {
+    "provider": "OpenAI",
+    "system": "Codex",
+    "type": "AI"
+  },
+  "translation": {
+    "method": "machine_translation_plain_english",
+    "source_language": "ja",
+    "target_language": "en",
+    "reading_level_target": "Plain English, CEFR A2-B1",
+    "human_translator": false,
+    "human_review_before_publication": false,
+    "source_acquisition": "WordPress REST API",
+    "initial_publication_commit": "26d85e769ca0964d5f45ad048062309845454305",
+    "initial_publication_commit_url": "https://github.com/ryukyu-no-tane/world-ryukyu-tane-astro/commit/26d85e769ca0964d5f45ad048062309845454305"
+  },
+  "articles": [
+    {
+      "slug": "260708-tosyokan",
+      "source_url": "https://news.ryukyu-tane.com/260708-tosyokan/",
+      "japanese_path": "src/content/blog/ja/news/2026-07-28-260708-tosyokan.md",
+      "japanese_sha256": "2ec9de90e111e4f6f07a2e6c5cf6d9d229354026bc34b29c4de53d00bfdb804d",
+      "english_path": "src/content/blog/en/news/2026-07-28-260708-tosyokan.md",
+      "english_sha256": "0b3dde0da85bcc9a150d8ac6b1dadd21ca310ad8cdef83a3906e3b543c07653c"
+    },
+    {
+      "slug": "260611-kcs",
+      "source_url": "https://news.ryukyu-tane.com/260611-kcs/",
+      "japanese_path": "src/content/blog/ja/news/2026-06-11-260611-kcs.md",
+      "japanese_sha256": "f00fc5392a9e8b68f18ff160273a61d21f569f9ddf03d9fc5b704faff1209bef",
+      "english_path": "src/content/blog/en/news/2026-06-11-260611-kcs.md",
+      "english_sha256": "fb11112e76cc52de9c75e98ba508fa62b3da671e6c4271bf3d39fcb4d9872e7d"
+    },
+    {
+      "slug": "260523-unnachu",
+      "source_url": "https://news.ryukyu-tane.com/260523-unnachu/",
+      "japanese_path": "src/content/blog/ja/news/2026-05-23-260523-unnachu.md",
+      "japanese_sha256": "762659b70640af8fe46c0a1249806c05250faa36de895800f942f76f05c6321f",
+      "english_path": "src/content/blog/en/news/2026-05-23-260523-unnachu.md",
+      "english_sha256": "16b5e712288526f91fc333f9e943e93492f79fbd4df3f80ba4dc57b3ba637f05"
+    }
+  ],
+  "evidence_scope": "This manifest records the declared production process and file hashes. Together with Git history, it provides auditable evidence of AI generation. It cannot mathematically prove the absence of every possible unrecorded human action."
+}

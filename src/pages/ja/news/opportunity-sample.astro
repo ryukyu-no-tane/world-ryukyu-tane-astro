@@ -67,7 +67,7 @@ const opportunities = [
 
 <BaseLayout
   title="NEWS｜琉球のタネ 機会朝刊サンプル"
-  description="社会資源との接点が少ない人にも届く、沖縄の機会の入口を集めたNEWS｜琉球のタネの公開サンプルです。"
+  description="沖縄で暮らす人が使える、無料・低コストの機会の入口を集めたNEWS｜琉球のタネの公開サンプルです。"
   lang="ja"
   jpHref="/ja/news/opportunity-sample/"
   enHref="/en/"
@@ -77,8 +77,8 @@ const opportunities = [
     <h1>沖縄の「機会真空」を、<br />機会密集へ。</h1>
     <p class="lead">今いる場所から、次の可能性を増やす入口を。</p>
     <p class="intro">
-      NEWS｜琉球のタネは、学び・仕事・人・情報・お金・体験などの社会資源に触れる機会が少ない人へ、
-      無料または低コストで使える「次の入口」を届けるニュースです。
+      NEWS｜琉球のタネは、<strong>沖縄で暮らす人</strong>に向けて、
+      無料または低コストで、人・モノ・金・情報・学び・仕事などの社会資源につながれる入口を届けます。
     </p>
     <div class="concept-flow" aria-label="機会真空から機会密集への流れ">
       <span>機会真空</span><b>→</b><span>機会接続</span><b>→</b><span>機会密集</span>
@@ -86,16 +86,14 @@ const opportunities = [
   </section>
 
   <section class="target-box">
-    <p class="box-kicker">このNEWSが特に届けたい人</p>
-    <h2>「情報はある。でも、自分につながる入口が少ない」と感じている人へ。</h2>
-    <div class="target-grid">
-      <div><strong>人との接点が少ない</strong><span>相談相手、専門家、仲間、地域とのつながりを増やしたい</span></div>
-      <div><strong>学びの機会が少ない</strong><span>お金や場所、所属に左右されず、新しい知識に触れたい</span></div>
-      <div><strong>仕事の選択肢を増やしたい</strong><span>就職、学び直し、職業体験など次の一歩を探している</span></div>
-      <div><strong>情報が届きにくい</strong><span>知られていない制度や無料の機会を見つけたい</span></div>
-    </div>
+    <p class="box-kicker">対象</p>
+    <h2>沖縄で暮らす人。</h2>
+    <p>
+      年齢、所得、障害の有無、職業、学歴などで読者を限定しません。
+      そのうえで、掲載する情報は「沖縄から直接使える」「無料または低コスト」「次の人・学び・仕事・体験につながる」ものを優先します。
+    </p>
     <p class="target-note">
-      年齢や肩書きで人を分類するのではなく、社会資源へのアクセスが薄い状態を「機会真空」と捉えます。
+      「持たざる者」や「ハンディのある人」はNEWS全体の対象者定義ではなく、入口の広さや利用しやすさを判断するときに取りこぼさないための編集上の観点です。
     </p>
   </section>
 
@@ -114,7 +112,6 @@ const opportunities = [
         </div>
         <h2>{item.title}</h2>
         <p class="for-whom"><strong>こんな人の「次の入口」に</strong><br />{item.forWhom}</p>
-
         <dl class="facts">
           <div><dt>費用</dt><dd>{item.cost}</dd></div>
           <div><dt>参加方法</dt><dd>{item.access}</dd></div>
@@ -131,7 +128,7 @@ const opportunities = [
     <h2>NEWSの基準は「その情報で、次の可能性が増えるか」</h2>
     <p>
       有名な制度や大きなニュースだけを集めるのではなく、入口が広く、無料または低コストで、
-      人・情報・学び・仕事など次の社会資源につながるものを優先して探します。
+      沖縄から人・情報・学び・仕事など次の社会資源につながれるものを優先して探します。
     </p>
   </section>
 </BaseLayout>
@@ -146,16 +143,11 @@ const opportunities = [
   .concept-flow { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: 1.8rem; font-weight: 700; }
   .concept-flow span { border: 1px solid currentColor; border-radius: 999px; padding: .55rem .9rem; }
   .concept-flow b { opacity: .4; }
-
   .target-box { margin: .5rem 0 2rem; padding: clamp(1.4rem, 5vw, 2.3rem); border-radius: 22px; background: rgba(128,128,128,.08); }
   .box-kicker { font-size: .8rem; font-weight: 700; letter-spacing: .08em; opacity: .6; }
-  .target-box h2 { font-size: clamp(1.35rem, 3.4vw, 2rem); line-height: 1.5; margin: .45rem 0 1.3rem; }
-  .target-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .8rem; }
-  .target-grid div { border: 1px solid rgba(128,128,128,.25); border-radius: 14px; padding: 1rem; }
-  .target-grid strong, .target-grid span { display: block; }
-  .target-grid span { margin-top: .35rem; line-height: 1.7; font-size: .92rem; opacity: .78; }
-  .target-note { margin: 1.2rem 0 0; font-size: .9rem; line-height: 1.8; opacity: .72; }
-
+  .target-box h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); margin: .35rem 0 .8rem; }
+  .target-box p { line-height: 1.9; }
+  .target-note { margin-top: 1rem; font-size: .9rem; opacity: .72; }
   .sample-note { display: flex; flex-wrap: wrap; gap: .65rem 1rem; padding: 1rem 1.1rem; border: 1px dashed currentColor; border-radius: 14px; margin: 0 0 1.8rem; font-size: .92rem; }
   .opportunity-list { display: grid; gap: 1.2rem; }
   .opportunity-card { border: 1px solid rgba(128,128,128,.28); border-radius: 20px; padding: clamp(1.2rem, 4vw, 2rem); background: color-mix(in srgb, currentColor 2%, transparent); }
@@ -175,10 +167,8 @@ const opportunities = [
   .closing-box { margin: 2rem 0 4rem; padding: clamp(1.4rem, 5vw, 2.4rem); border-radius: 20px; background: rgba(128,128,128,.08); }
   .closing-box h2 { font-size: clamp(1.25rem, 3vw, 1.6rem); margin-top: 0; }
   .closing-box p { margin-bottom: 0; line-height: 1.9; }
-
   @media (max-width: 640px) {
     .opportunity-hero { padding-top: 2.4rem; }
-    .target-grid { grid-template-columns: 1fr; }
     .facts > div { grid-template-columns: 1fr; gap: .25rem; }
   }
 </style>

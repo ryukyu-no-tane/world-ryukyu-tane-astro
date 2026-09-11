@@ -1,0 +1,164 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+
+const opportunities = [
+  {
+    title: '沖縄障害者職業センターの無料職業支援',
+    summary: '就職や職場復帰を考える人が、無料で相談や職業支援につながれる入口です。職業評価、職業準備支援、ジョブコーチなど、次の支援へつながりやすいのが特徴です。',
+    audience: '障害のある求職者、休職中の人、事業主、支援機関',
+    cost: '無料',
+    place: '沖縄県内',
+    timing: '随時',
+    resources: ['人', '情報', '能力知識', '機会'],
+    next: '職業評価、職業準備支援、ジョブコーチ、職場復帰支援',
+    score: 96,
+    category: '就労・相談',
+  },
+  {
+    title: '九州・沖縄の中小企業向け AI・DX人材育成セミナー',
+    summary: 'AI・DX人材育成を無料で学べるオンラインの入口です。沖縄から参加でき、学習後はリスキリング支援や関連相談へつながる可能性があります。',
+    audience: '九州・沖縄地方の中小企業の経営者・管理職',
+    cost: '無料',
+    place: 'オンライン',
+    timing: '2026年9月18日',
+    resources: ['人', '情報', '能力知識', '機会'],
+    next: 'リスキリング支援、関連セミナー、相談窓口',
+    score: 91,
+    category: '学び直し',
+  },
+  {
+    title: '観光現場での食の多様性｜ユニバーサルツーリズムセミナー',
+    summary: '観光の現場で、多様な食文化やニーズへの対応を学べる無料講座です。オンライン参加ができ、現場改善や次回講座への接続が期待できます。',
+    audience: '観光事業者・観光に関わる人',
+    cost: '無料',
+    place: 'オンライン',
+    timing: '2026年9月18日',
+    resources: ['人', '情報', '能力知識', '機会'],
+    next: '観光現場の実践改善、シリーズ次回セミナー',
+    score: 82,
+    category: '観光・学び',
+  },
+  {
+    title: '沖縄公庫フォーラム2026｜人口構造の変化を見据えた沖縄経済の未来',
+    summary: '沖縄経済の変化を知り、地域活動や事業の判断材料を増やせる無料フォーラムです。オンライン参加と録画視聴の入口があります。',
+    audience: '沖縄の事業者、地域活動者、テーマに関心のある人',
+    cost: '無料',
+    place: 'オンライン',
+    timing: '2026年10月2日',
+    resources: ['人', '情報', '能力知識', '機会'],
+    next: '録画視聴、地域経済・経営情報への接続',
+    score: 80,
+    category: '地域経済',
+  },
+  {
+    title: 'マニュアル化の前にやること！！業務改善の進め方',
+    summary: '業務改善の進め方を無料で学び、個別相談や中小企業支援につながれる実務型の入口です。PC操作が必要なため参加ハードルは少し高めです。',
+    audience: '県内の中小企業・小規模事業者など',
+    cost: '無料',
+    place: '沖縄県内会場',
+    timing: '2026年9月25日',
+    resources: ['人', '情報', '能力知識', '機会'],
+    next: '個別相談、中小企業支援センター',
+    score: 72,
+    category: '仕事・業務改善',
+  },
+];
+---
+
+<BaseLayout
+  title="NEWS｜琉球のタネ 機会朝刊サンプル"
+  description="沖縄で暮らす人の機会密度を上げる入口を集めた、NEWS｜琉球のタネの朝刊サンプルです。"
+  lang="ja"
+  jpHref="/ja/news/opportunity-sample/"
+  enHref="/en/"
+>
+  <section class="opportunity-hero">
+    <p class="eyebrow">NEWS｜琉球のタネ / SAMPLE</p>
+    <h1>沖縄の「機会真空」を、<br />機会密集へ。</h1>
+    <p class="lead">今日、どの入口が増えたか。</p>
+    <p class="intro">
+      沖縄で暮らす人が、無料または低コストで、人・情報・学び・仕事などにつながれる入口を集めています。
+      これは朝刊フォーマットの公開サンプルです。
+    </p>
+    <div class="concept-flow" aria-label="機会真空から機会密集への流れ">
+      <span>機会真空</span><b>→</b><span>機会接続</span><b>→</b><span>機会密集</span>
+    </div>
+  </section>
+
+  <section class="sample-note">
+    <strong>サンプル公開中</strong>
+    <span>外部リンクは、リンク規約確認前のため掲載していません。</span>
+  </section>
+
+  <section class="opportunity-list">
+    {opportunities.map((item, index) => (
+      <article class="opportunity-card">
+        <div class="card-topline">
+          <span class="number">{String(index + 1).padStart(2, '0')}</span>
+          <span class="category">{item.category}</span>
+          <span class="score">{item.score}<small>/100</small></span>
+        </div>
+        <h2>{item.title}</h2>
+        <p class="summary">{item.summary}</p>
+
+        <dl class="facts">
+          <div><dt>対象</dt><dd>{item.audience}</dd></div>
+          <div><dt>費用</dt><dd>{item.cost}</dd></div>
+          <div><dt>場所</dt><dd>{item.place}</dd></div>
+          <div><dt>開催・利用</dt><dd>{item.timing}</dd></div>
+          <div><dt>増えるもの</dt><dd class="tags">{item.resources.map((r) => <span>#{r}</span>)}</dd></div>
+          <div><dt>次の入口</dt><dd>{item.next}</dd></div>
+        </dl>
+      </article>
+    ))}
+  </section>
+
+  <section class="closing-box">
+    <h2>NEWSの価値は、記事量ではなく「次の入口」</h2>
+    <p>
+      面白い情報を並べるだけではなく、その情報を使うことで人・学び・仕事・相談・地域との接点が増えるかを重視して選びます。
+    </p>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(main) { max-width: 980px; }
+
+  .opportunity-hero { padding: 3.5rem 0 2rem; }
+  .eyebrow { font-size: .78rem; letter-spacing: .14em; font-weight: 700; opacity: .62; }
+  h1 { font-size: clamp(2.35rem, 8vw, 5rem); line-height: 1.06; letter-spacing: -.04em; margin: .6rem 0 1.15rem; }
+  .lead { font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 700; margin: 0 0 .8rem; }
+  .intro { max-width: 700px; line-height: 1.9; opacity: .82; }
+  .concept-flow { display: flex; flex-wrap: wrap; gap: .6rem; align-items: center; margin-top: 1.8rem; font-weight: 700; }
+  .concept-flow span { border: 1px solid currentColor; border-radius: 999px; padding: .55rem .9rem; }
+  .concept-flow b { opacity: .4; }
+
+  .sample-note { display: flex; flex-wrap: wrap; gap: .65rem 1rem; padding: 1rem 1.1rem; border: 1px dashed currentColor; border-radius: 14px; margin: 0 0 1.8rem; font-size: .92rem; }
+
+  .opportunity-list { display: grid; gap: 1.2rem; }
+  .opportunity-card { border: 1px solid rgba(128,128,128,.28); border-radius: 20px; padding: clamp(1.2rem, 4vw, 2rem); background: color-mix(in srgb, currentColor 2%, transparent); }
+  .card-topline { display: grid; grid-template-columns: auto 1fr auto; gap: .75rem; align-items: center; margin-bottom: .8rem; }
+  .number { font-size: .78rem; font-weight: 700; opacity: .5; }
+  .category { justify-self: start; font-size: .78rem; font-weight: 700; border: 1px solid rgba(128,128,128,.32); border-radius: 999px; padding: .28rem .65rem; }
+  .score { font-size: 1.5rem; font-weight: 700; letter-spacing: -.04em; }
+  .score small { font-size: .7rem; opacity: .5; margin-left: .1rem; }
+  .opportunity-card h2 { font-size: clamp(1.25rem, 3vw, 1.7rem); line-height: 1.45; margin: 0 0 .8rem; }
+  .summary { line-height: 1.85; margin: 0 0 1.3rem; }
+
+  .facts { display: grid; gap: 0; margin: 0; border-top: 1px solid rgba(128,128,128,.2); }
+  .facts > div { display: grid; grid-template-columns: 7.5rem 1fr; gap: .8rem; padding: .7rem 0; border-bottom: 1px solid rgba(128,128,128,.16); }
+  dt { font-size: .82rem; font-weight: 700; opacity: .58; }
+  dd { margin: 0; line-height: 1.65; }
+  .tags { display: flex; flex-wrap: wrap; gap: .35rem .7rem; }
+  .tags span { white-space: nowrap; }
+
+  .closing-box { margin: 2rem 0 4rem; padding: clamp(1.4rem, 5vw, 2.4rem); border-radius: 20px; background: rgba(128,128,128,.08); }
+  .closing-box h2 { font-size: clamp(1.25rem, 3vw, 1.6rem); margin-top: 0; }
+  .closing-box p { margin-bottom: 0; line-height: 1.9; }
+
+  @media (max-width: 640px) {
+    .opportunity-hero { padding-top: 2.4rem; }
+    .facts > div { grid-template-columns: 1fr; gap: .25rem; }
+    .card-topline { grid-template-columns: auto 1fr auto; }
+  }
+</style>

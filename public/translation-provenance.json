@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "site": "https://world2.ryukyu-tane.com",
-  "generated_at": "2026-09-11T00:24:44Z",
+  "generated_at": "2026-09-11T05:17:53Z",
   "generator": {
     "provider": "OpenAI",
     "system": "Codex",
@@ -11,7 +11,9 @@
     "method": "machine_translation_plain_english",
     "source_language": "ja",
     "target_language": "en",
-    "reading_level_target": "Plain English, CEFR A2-B1",
+    "reading_level_target": "Six-verb Plain English, CEFR A2-B1",
+    "core_action_verbs": ["give", "get", "go", "have", "take", "make"],
+    "verb_scope": "Article prose uses these six core action verbs. Forms of be and modal or auxiliary verbs are allowed as grammar. Names, technical terms, labels, links, and nouns or adjectives derived from verbs may remain when needed for accuracy.",
     "human_translator": false,
     "human_review_before_publication": false,
     "source_acquisition": "WordPress REST API",
@@ -25,7 +27,7 @@
       "japanese_path": "src/content/blog/ja/news/2026-07-28-260708-tosyokan.md",
       "japanese_sha256": "2ec9de90e111e4f6f07a2e6c5cf6d9d229354026bc34b29c4de53d00bfdb804d",
       "english_path": "src/content/blog/en/news/2026-07-28-260708-tosyokan.md",
-      "english_sha256": "0b3dde0da85bcc9a150d8ac6b1dadd21ca310ad8cdef83a3906e3b543c07653c"
+      "english_sha256": "644e30ea85192e12243f5e7d6e86926d4e31436a8034c199482d44fc3aabdf72"
     },
     {
       "slug": "260611-kcs",
@@ -33,7 +35,7 @@
       "japanese_path": "src/content/blog/ja/news/2026-06-11-260611-kcs.md",
       "japanese_sha256": "f00fc5392a9e8b68f18ff160273a61d21f569f9ddf03d9fc5b704faff1209bef",
       "english_path": "src/content/blog/en/news/2026-06-11-260611-kcs.md",
-      "english_sha256": "fb11112e76cc52de9c75e98ba508fa62b3da671e6c4271bf3d39fcb4d9872e7d"
+      "english_sha256": "c72806e3ace70802bd6afa3871e8c10031c8b81dd4fb21c44deb200779469ddb"
     },
     {
       "slug": "260523-unnachu",
@@ -41,7 +43,7 @@
       "japanese_path": "src/content/blog/ja/news/2026-05-23-260523-unnachu.md",
       "japanese_sha256": "762659b70640af8fe46c0a1249806c05250faa36de895800f942f76f05c6321f",
       "english_path": "src/content/blog/en/news/2026-05-23-260523-unnachu.md",
-      "english_sha256": "16b5e712288526f91fc333f9e943e93492f79fbd4df3f80ba4dc57b3ba637f05"
+      "english_sha256": "3daef3bbe002d87b7194d745c2cd84eb40e7816a6486205d9c46e55b5f2ef485"
     }
   ],
   "evidence_scope": "This manifest records the declared production process and file hashes. Together with Git history, it provides auditable evidence of AI generation. It cannot mathematically prove the absence of every possible unrecorded human action."

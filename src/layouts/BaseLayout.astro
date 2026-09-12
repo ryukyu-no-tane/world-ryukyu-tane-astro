@@ -50,13 +50,14 @@ const enUrl = new URL(enHref, Astro.site);
       </nav>
     </div>
     <nav class="series-nav">
-      <a href={isEnglish ? '/en/news/260708-tosyokan/' : '/ja/news/opportunity-sample/'}>
+      <a href={isEnglish ? '/en/news/260708-tosyokan/' : '/ja/news/260708-tosyokan/'}>
         {isEnglish ? '📰 Latest News' : '📰 最新記事'}
       </a>
       {!isEnglish && <a href="/ja/series-f/">🎙 沖縄の記憶</a>}
     </nav>
   </header>
 
+  <!-- 表示設定パネル -->
   <div class="ui-controls" id="uiControls">
     <button class="ui-toggle" id="uiToggle" title={isEnglish ? 'Display settings' : '表示設定'}>⚙️</button>
     <div class="ui-panel" id="uiPanel">

@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+export function getStaticPaths() {
+  return [{params:{lang:'ja'}},{params:{lang:'en'}}];
+}
+const lang = Astro.params.lang === 'en' ? 'en' : 'ja';
+const en = lang === 'en';
+const jpHref='/ja/history/sadoyama-genealogy/';
+const enHref='/en/history/sadoyama-genealogy/';
+const title=en?'Seventeen generations: from Anki to Kaname':'毛氏・佐渡山家の17世代 ― 安基から要へ';
+const people=[
+['AA','新城親方 安基','Anki Aragusuku','毛龍唫','毛氏宗家の始祖','Founder of the family line'],
+['BA','池城親方 安棟','Antō Ikegusuku','毛廉','',''],
+['CA','池城親方 安頼','Anrai Ikegusuku','毛鳳儀','',''],
+['DB','池城親方 安続','Anzoku Ikegusuku','毛錫穎','兄・安幹の家督を継承','Succeeded his elder brother as head of the family'],
+['EA','池城親方 安成','Ansei Ikegusuku','毛如璋','',''],
+['FB','佐渡山親方 安治','Anji Sadoyama','毛国瑞','佐渡山家の分家起点。世代表記に異同あり','Founder of the Sadoyama branch; generation numbering differs in the records'],
+['GD','安村','Anson','','',''],
+['HD','安尊','Anson','','安樽とする旧判読あり','Earlier reading: 安樽'],
+['IC','安昌','Anshō','','安尊の次男','Second son of Anson'],
+['J**','安和','Anwa','毛為棟','兄は安良。英語版との同定候補','Elder brother: Anryō; proposed match with the English chart'],
+['K*','安庸','Anyō','毛経善','名乗り・読みは家族提供情報','Name and reading supplied by the family'],
+['L*','安伯','Anpuku','毛朝輔','名乗り・読みは家族提供情報','Name and reading supplied by the family'],
+['','安卒','Ansotsu?','','字形・読みは要確認','Written form and reading need verification'],
+['','安常','Anjō?','','三男との家族提供情報','Reported by the family as the third son'],
+['','安珠','Anju?','','読み未確認','Reading not verified'],
+['','安弘','Ankō?','','安珠の五男との家族提供情報','Reported as the fifth son of Anju'],
+['','要','Kaname','','安弘の長男との家族提供情報','Reported as the eldest son of his father']
+];
+---
+<BaseLayout title={title} lang={lang} jpHref={jpHref} enHref={enHref} description={en?'A provisional family history across seventeen generations in Okinawa.':'沖縄の家族史を17世代の系譜からたどる調査記録。'}>
+  <article class="genealogy">
+    <div class="intro">
+      <p class="eyebrow">OKINAWA · FAMILY HISTORY</p>
+      <h1>{title}</h1>
+      <p>{en?'A family history from the Ryukyu Kingdom to the present. This page brings together family charts, historical names and family knowledge.':'琉球王国の時代から現代へ。家族に伝わる系図と名乗りを手掛かりに、世代を越えて受け継がれた歴史をたどります。'}</p>
+      <p class="date">{en?'Research snapshot · 27 November 2026':'調査版 · 2026年11月27日'}</p>
+      <nav class="local-language" aria-label={en?'Language':'言語'}><a href={jpHref} lang="ja" aria-current={!en?'page':undefined}>日本語</a><a href={enHref} lang="en" aria-current={en?'page':undefined}>English</a></nav>
+    </div>
+    <aside class="notice"><strong>{en?'Research in progress':'調査途中の系譜'}</strong><p>{en?'This is a working reconstruction, not a proven record of every parent-child relationship. Dashed lines mark links that still need checking. The chart IDs are copied or proposed matches; they are not official historical identifiers.':'全ての親子関係が史料で確定したわけではありません。破線は照合が必要な接続です。識別番号は資料上の番号または対応候補であり、公的な識別番号ではありません。'}</p></aside>
+    <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
+    <ol class="lineage">
+      {people.map(([id,ja,roman,cn,noteJa,noteEn],i)=><li class:list={[i>=9&&i<=15?'pending':'',i===5?'branch':'']}>
+        <span class="generation">{String(i+1).padStart(2,'0')}<small>{en?'GEN':'世'}</small></span>
+        <div class="person"><div class="person-top"><h3>{en?roman:ja}</h3>{id&&<span class="source-id">{id}</span>}</div><p class="alternate" lang={en?'ja':'en'}>{en?ja:roman}</p>{cn&&<p class="chinese">{en?'Chinese-style name: ':'唐名：'}{cn}</p>}{(en?noteEn:noteJa)&&<p class="detail">{en?noteEn:noteJa}</p>}</div>
+      </li>)}
+    </ol>
+    <section class="sources"><h2>{en?'Sources and limits':'出典と検証状況'}</h2>
+      <p>{en?'Family genealogy charts in Japanese (including 毛姓佐渡山家支流世系図 and the stamped chart P03), Ancestors of the Sadoyama Family (Roy Takemoto, October 2026), and family corrections supplied in November 2026. This page is based on genealogy draft version 14 and later corrections. The original family records have not been independently verified.':'日本語系図（毛姓佐渡山家支流世系図、印影のあるP03等）、英語版 Ancestors of the Sadoyama Family（Roy Takemoto、2026年10月）、2026年11月の家族提供訂正情報。第14版調査資料とその後の訂正をもとにした公開用スナップショットです。家譜原本の独立検証は未実施です。'}</p>
+      <p>{en?'The identification of Anwa and Anyō across the charts, the links after Anpuku, the spelling of generation 13, and the generation number of Anji still need verification. Roman readings marked with a question mark are provisional.':'安和・安庸の資料間の同定、安伯以降の接続、十三世の字形、安治の世代番号は要検証です。疑問符付きのローマ字読みは暫定です。'}</p>
+      <p>{en?'How this English version was made: ChatGPT generated this Plain English text from the Japanese research draft. It has not been independently reviewed by a human translator.':'英語版はChatGPTによるPlain English翻訳です。人間の翻訳者による独立確認は未実施です。'}</p>
+    </section>
+  </article>
+</BaseLayout>
+<style>
+.genealogy{max-width:760px;margin:auto;padding:1.5rem 0 3rem;line-height:1.7}
+.intro{padding:1.6rem 0 1rem;border-bottom:1px solid var(--border,#aaa)}
+.eyebrow{font-size:.76rem;letter-spacing:.18em;font-weight:700}
+h1{font-size:clamp(1.65rem,5vw,2.6rem);line-height:1.3;margin:.5rem 0 1rem}
+.date,.alternate,.detail,.chinese{font-size:.91em;margin:.25rem 0}
+.local-language{display:flex;gap:.8rem;margin:1rem 0}
+.local-language a{padding:.45rem .9rem;border:1px solid currentColor;border-radius:6px}
+.local-language a[aria-current=page]{font-weight:bold;text-decoration:underline}
+.notice{border-inline-start:4px solid #b18a50;padding:.8rem 1rem;margin:1.5rem 0}
+.notice p{margin:.4rem 0}
+h2{margin:2rem 0 1rem;font-size:1.35rem}
+.lineage{list-style:none;padding:0;margin:0}
+.lineage li{position:relative;display:grid;grid-template-columns:3.2rem minmax(0,1fr);gap:.8rem;padding:0 0 1.15rem}
+.lineage li:not(:last-child)::after{content:'';position:absolute;top:2.55rem;bottom:0;left:1.55rem;border-left:2px solid #84968a}
+.lineage li.pending::after{border-left-style:dashed;border-left-color:#b18a50}
+.generation{width:3.2rem;height:2.55rem;border:1px solid #84968a;border-radius:6px;text-align:center;font-weight:bold;display:flex;align-items:center;justify-content:center;gap:.2rem}
+.generation small{font-size:.6em}
+.person{border:1px solid #84968a66;border-radius:9px;padding:.85rem 1rem;min-width:0}
+.branch .person{border:2px solid #5b8977}
+.person-top{display:flex;align-items:baseline;justify-content:space-between;gap:.5rem;flex-wrap:wrap}
+h3{font-size:1.18rem;line-height:1.4;margin:0}
+.source-id{font-family:monospace;font-size:.82rem;border:1px solid #84968a66;padding:.05rem .4rem;border-radius:4px}
+.sources{border-top:1px solid #84968a66;margin-top:1rem}
+@media(max-width:420px){.lineage li{grid-template-columns:2.5rem minmax(0,1fr);gap:.5rem}.generation{width:2.5rem}.lineage li:not(:last-child)::after{left:1.2rem}.person{padding:.7rem}.genealogy{padding-top:.5rem}}
+</style>

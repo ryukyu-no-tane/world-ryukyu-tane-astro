@@ -1,5 +1,4 @@
 ---
-import { existsSync } from 'node:fs';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 export function getStaticPaths() {
   return [{params:{lang:'ja'}},{params:{lang:'en'}}];
@@ -56,12 +55,8 @@ const people=[
     </section>
     <section class="reunion-gallery">
       <h2>{en?'Scenes from the reunion':'佐渡山家の集いの記録'}</h2>
-      {[
-        ['reunion-hall.jpg','集いの会場風景','The reunion gathering'],
-        ['reunion-family-tree.jpg','会場で系図を確認する参加者','Participants looking at family charts'],
-        ['reunion-english-chart.jpg','会場に展示された英語版系図（公開用・個人情報部分をぼかした画像）','English genealogy chart displayed at the reunion (personal details blurred for public viewing)'],
-        ['reunion-annotated-chart.jpg','安伯からの分岐を示す手書き注釈入り系図（公開用・写真補整版、分岐は調査仮説）','Annotated chart suggesting a branch at Anpuku (edited photograph; provisional research hypothesis)']
-      ].filter(([file])=>existsSync(new URL('../../../../public/'+file,import.meta.url))).map(([file,ja,english])=><figure><img src={'/'+file} alt={en?english:ja} loading="lazy" decoding="async"/><figcaption>{en?english:ja}</figcaption></figure>)}
+      <p>{en?'Photographs of the November 26, 2026 reunion and the genealogy charts. Some images have been edited for readability and privacy. The handwritten branch is a research hypothesis, not a confirmed historical record.':'2026年11月26日の集いの会場風景と系図の記録です。一部の画像は見やすさや個人情報保護のために加工しています。手書きの分岐は確定史料ではなく調査仮説です。'}</p>
+      {["0AA77F8B-58F9-4523-AD88-D68017B7A673.png","7D5265E2-32B1-4CAF-B1F5-474521454E02.png","A1E3E90B-DFFF-46C7-A93F-88EE63A0EED9.png","BD00F45F-27E0-4624-87DD-920F5DD1145B.png"].map((file,i)=><figure><img src={'/'+file} alt={en?'Sadoyama Family Reunion 2026 — photograph '+(i+1):'佐渡山家の集い2026・記録写真 '+(i+1)} loading="lazy" decoding="async"/><figcaption>{en?'Sadoyama Family Reunion 2026 — '+(i+1):'佐渡山家の集い2026・記録 '+(i+1)}</figcaption></figure>)}
     </section>
     <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
     <ol class="lineage">

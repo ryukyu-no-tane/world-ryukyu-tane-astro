@@ -1,6 +1,4 @@
 ---
-import { existsSync } from 'node:fs';
-const hasCover = existsSync(new URL('../../../../public/sadoyama-kafu-cover.jpg', import.meta.url));
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 export function getStaticPaths() {
   return [{params:{lang:'ja'}},{params:{lang:'en'}}];
@@ -40,7 +38,7 @@ const people=[
       <nav class="local-language" aria-label={en?'Language':'言語'}><a href={jpHref} lang="ja" aria-current={!en?'page':undefined}>日本語</a><a href={enHref} lang="en" aria-current={en?'page':undefined}>English</a></nav>
     </div>
     <aside class="notice"><strong>{en?'Research in progress':'調査途中の系譜'}</strong><p>{en?'This is a working reconstruction, not a proven record of every parent-child relationship. Dashed lines mark links that still need checking. The chart IDs are copied or proposed matches; they are not official historical identifiers.':'全ての親子関係が史料で確定したわけではありません。破線は照合が必要な接続です。識別番号は資料上の番号または対応候補であり、公的な識別番号ではありません。'}</p></aside>
-    {hasCover && <figure class="kafu-cover"><a href="/sadoyama-kafu-cover.jpg"><img src="/sadoyama-kafu-cover.jpg" alt={en?'Cover of the Sadoyama family genealogy, AI-restored illustration':'毛姓家譜・佐渡山家世系図の表紙（AI補整版）'} loading="lazy" decoding="async" /></a><figcaption>{en?'Family genealogy cover. AI-assisted reconstruction from a family photograph; not a facsimile or historical primary source.':'毛姓家譜・佐渡山家世系図の表紙。家族提供写真をAIで補整・再構成した画像であり、原本の忠実な複製ではありません。'}</figcaption></figure>}
+    <figure class="kafu-cover"><a href="/14505EA8-68E8-47E8-B646-8D6A65B9F06F.png"><img src="/14505EA8-68E8-47E8-B646-8D6A65B9F06F.png" alt={en?'Cover of the Sadoyama family genealogy, AI-restored illustration':'毛姓家譜・佐渡山家世系図の表紙（AI補整版）'} loading="lazy" decoding="async" /></a><figcaption>{en?'Family genealogy cover. AI-assisted reconstruction from a family photograph; not a facsimile or historical primary source.':'毛姓家譜・佐渡山家世系図の表紙。家族提供写真をAIで補整・再構成した画像であり、原本の忠実な複製ではありません。'}</figcaption></figure>
     <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
     <ol class="lineage">
       {people.map(([id,ja,roman,cn,noteJa,noteEn],i)=><li class:list={[i>=9&&i<=15?'pending':'',i===5?'branch':'']}>

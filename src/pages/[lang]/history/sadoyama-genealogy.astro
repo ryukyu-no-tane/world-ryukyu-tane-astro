@@ -48,7 +48,10 @@ const people=[
       <p>{en?'At the reunion, he had the opportunity to compare his own research with the family trees preserved by his relatives.':'今回の集いでは、親族が受け継いできた系図と、それまで自身が収集してきた資料を照合する機会に恵まれました。'}</p>
       <p>{en?'By bringing these records together, he was able to trace a provisional family line across seventeen generations, from Anki, the founder of the Mō family line, to Kaname himself.':'その結果、これまで断片的だった情報がつながり、毛氏宗家の始祖である安基から、十七世・要に至る系譜を暫定的にたどることができました。'}</p>
       <p>{en?'Family records passed down separately over many generations came together through this reunion in Okinawa.':'長い年月を経て別々に受け継がれてきた家族の記録が、沖縄での再会を通じて一つにつながったのです。'}</p>
-      <p class="detail">{en?'Related coverage: ':'関連報道：'}<a href="https://okinawadaily.jp.net/naha/bunka-naha/sadoyama-family-reunites-after-100-years-in-naha.html" target="_blank" rel="noopener noreferrer">{en?'Okinawa Daily — Sadoyama family reunites after 100 years in Naha (Japanese)':'沖縄デイリー｜佐渡山家の100年越しの再会に関する記事'}</a></p>
+      <div class="related-coverage">
+        <h3>{en?'Related coverage':'関連ページ・報道記事'}</h3>
+        <p><a href="https://okinawadaily.jp.net/naha/bunka-naha/sadoyama-family-reunites-after-100-years-in-naha.html" target="_blank" rel="noopener noreferrer">{en?'Okinawa Daily — Sadoyama family reunites after 100 years in Naha (Japanese)':'沖縄デイリー｜佐渡山家の100年越しの再会に関する記事'}</a></p>
+      </div>
       <h3>{en?'A possible connection between family branches':'安伯を共通祖先とする二つの系統（調査仮説）'}</h3>
       <p>{en?'The English family chart lists Anbun Sadoyama (1870–1962, ID N*) in generation 14, based on the chart’s letter system. The reunion brought together descendants of Anbun’s daughters Umito and Tsuruko. A handwritten addition to the English chart suggests that the two branches may share a common ancestor at Anpuku (generation 12, L*). This connection still needs to be checked against the Japanese family records.':'英語版系図には、安文（Anbun Sadoyama、1870–1962、識別番号 N*）が記載されています。識別番号の規則から十四世と考えられますが、世代の数え方には確認の余地があります。今回の集いは安文の娘であるウミトとツルコの子孫たちの交流の場でした。英語版系図への手書きの追記から、要に至る系統と十二世・安伯（L*）を共通祖先とする可能性が浮かび上がりました。この分岐点は暫定的な調査仮説であり、日本語家譜との照合が必要です。'}</p>
       <p class="detail">{en?'Sources: Sadoyama Family Reunion 2026 booklet, “How It All Came About…”, the English family chart (October 2026), and family information provided on November 27, 2026. The Japanese spelling 安文 is supplied by the family; the historical written form is not yet independently verified.':'出典：Sadoyama Family Reunion 2026 冊子「How It All Came About…」、2026年10月作成の英語版系図、2026年11月27日の家族提供情報。「安文」の漢字表記は家族提供情報で、原史料との照合は未完了です。'}</p>
@@ -56,7 +59,7 @@ const people=[
     <section class="reunion-gallery">
       <h2>{en?'Scenes from the reunion':'佐渡山家の集いの記録'}</h2>
       <p>{en?'Photographs of the November 26, 2026 reunion and the genealogy charts. Some images have been edited for readability and privacy. The handwritten branch is a research hypothesis, not a confirmed historical record.':'2026年11月26日の集いの会場風景と系図の記録です。一部の画像は見やすさや個人情報保護のために加工しています。手書きの分岐は確定史料ではなく調査仮説です。'}</p>
-      {["0AA77F8B-58F9-4523-AD88-D68017B7A673.png","7D5265E2-32B1-4CAF-B1F5-474521454E02.png","A1E3E90B-DFFF-46C7-A93F-88EE63A0EED9.png","BD00F45F-27E0-4624-87DD-920F5DD1145B.png"].map((file,i)=><figure><img src={'/'+file} alt={en?'Sadoyama Family Reunion 2026 — photograph '+(i+1):'佐渡山家の集い2026・記録写真 '+(i+1)} loading="lazy" decoding="async"/><figcaption>{en?'Sadoyama Family Reunion 2026 — '+(i+1):'佐渡山家の集い2026・記録 '+(i+1)}</figcaption></figure>)}
+      {["0AA77F8B-58F9-4523-AD88-D68017B7A673.png","7D5265E2-32B1-4CAF-B1F5-474521454E02.png","A1E3E90B-DFFF-46C7-A93F-88EE63A0EED9.png","BD00F45F-27E0-4624-87DD-920F5DD1145B.png"].map((file,i)=><figure><img src={'/'+file} alt={i===3?(en?'Adding my own information to the family tree.':'家系図に自分の情報を書き込んでいる様子'):(en?'Sadoyama Family Reunion 2026 — photograph '+(i+1):'佐渡山家の集い2026・記録写真 '+(i+1))} loading="lazy" decoding="async"/><figcaption>{i===3?(en?'Adding my own information to the family tree.':'家系図に自分の情報を書き込んでいる様子'):(en?'Sadoyama Family Reunion 2026 — '+(i+1):'佐渡山家の集い2026・記録 '+(i+1))}</figcaption></figure>)}
     </section>
     <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
     <ol class="lineage">

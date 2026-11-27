@@ -39,6 +39,15 @@ const people=[
     </div>
     <aside class="notice"><strong>{en?'Research in progress':'調査途中の系譜'}</strong><p>{en?'This is a working reconstruction, not a proven record of every parent-child relationship. Dashed lines mark links that still need checking. The chart IDs are copied or proposed matches; they are not official historical identifiers.':'全ての親子関係が史料で確定したわけではありません。破線は照合が必要な接続です。識別番号は資料上の番号または対応候補であり、公的な識別番号ではありません。'}</p></aside>
     <figure class="kafu-cover"><a href="/14505EA8-68E8-47E8-B646-8D6A65B9F06F.png"><img src="/14505EA8-68E8-47E8-B646-8D6A65B9F06F.png" alt={en?'Cover of the Sadoyama family genealogy, AI-restored illustration':'毛姓家譜・佐渡山家世系図の表紙（AI補整版）'} loading="lazy" decoding="async" /></a><figcaption>{en?'Family genealogy cover. AI-assisted reconstruction from a family photograph; not a facsimile or historical primary source.':'毛姓家譜・佐渡山家世系図の表紙。家族提供写真をAIで補整・再構成した画像であり、原本の忠実な複製ではありません。'}</figcaption></figure>
+    <section class="reunion">
+      <p class="eyebrow">SADOYAMA FAMILY REUNION 2026</p>
+      <h2>{en?'Back to Okinawa: a family reunion':'佐渡山家の集い ― 沖縄へ、ルーツをたどる旅'}</h2>
+      <p>{en?'On November 26, 2026, the Sadoyama Family Reunion in Naha, Okinawa, gave us a chance to bring together family records, genealogy charts and knowledge passed down through the family. This web page grew out of that gathering.':'2026年11月26日、沖縄県那覇市で開催された「佐渡山ファミリーリユニオン（佐渡山家の集い）」をきっかけに、家族に伝わる家譜や系図、聞き取り情報を持ち寄り、今回の系譜調査とWebページの制作が実現しました。'}</p>
+      <p>{en?'The reunion booklet tells how a family gathering in 2024 inspired a return to Okinawa. It also recalls the first family reunion in Las Vegas in 1980 and the family history of the sisters Umito and Tsuru Sadoyama.':'当日の冊子によると、2024年の新年の集まりで系図を広げたことが沖縄での再会につながりました。1980年にラスベガスで始まった親族の集いと、佐渡山家のウミト・ツル姉妹の歩みも紹介されています。'}</p>
+      <h3>{en?'A possible connection between family branches':'安和からつながる二つの系統（調査仮説）'}</h3>
+      <p>{en?'The English family chart lists Anbun Sadoyama (1870–1962, ID N*) in generation 14, based on the chart’s letter system. The family believes that the reunion participants belong to his descendants. The branch shown here, ending with Kaname, may share an ancestor with that branch at Anwa (generation 10), or at a later generation. The exact point where the two branches separated is not yet known.':'英語版系図には、安分（Anbun Sadoyama、1870–1962、識別番号 N*）が記載されています。識別番号の規則から十四世と考えられますが、世代の数え方には確認の余地があります。今回の集いに参加した親族は安分さんの子孫の系統と考えられ、要に至る系統とは十世・安和、あるいはその後の世代で共通の祖先を持つ可能性があります。正確な分岐点は今後の調査課題です。'}</p>
+      <p class="detail">{en?'Sources: Sadoyama Family Reunion 2026 booklet, “How It All Came About…”, the English family chart (October 2026), and family information provided on November 27, 2026. The Japanese spelling 安分 is supplied by the family; the historical written form is not yet independently verified.':'出典：Sadoyama Family Reunion 2026 冊子「How It All Came About…」、2026年10月作成の英語版系図、2026年11月27日の家族提供情報。「安分」の漢字表記は家族提供情報で、原史料との照合は未完了です。'}</p>
+    </section>
     <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
     <ol class="lineage">
       {people.map(([id,ja,roman,cn,noteJa,noteEn],i)=><li class:list={[i>=9&&i<=15?'pending':'',i===5?'branch':'']}>
@@ -77,6 +86,7 @@ h2{margin:2rem 0 1rem;font-size:1.35rem}
 h3{font-size:1.18rem;line-height:1.4;margin:0}
 .source-id{font-family:monospace;font-size:.82rem;border:1px solid #84968a66;padding:.05rem .4rem;border-radius:4px}
 .kafu-cover{margin:1.5rem auto;max-width:460px;text-align:center}.kafu-cover img{display:block;width:100%;height:auto;border:1px solid #84968a66;border-radius:5px}.kafu-cover figcaption{font-size:.85em;margin-top:.6rem}
+.reunion{border:1px solid #84968a66;border-radius:10px;padding:1.2rem;margin:1.6rem 0}.reunion h2{margin:.4rem 0 1rem}.reunion h3{margin:1.2rem 0 .6rem}.reunion p{margin:.6rem 0}
 .sources{border-top:1px solid #84968a66;margin-top:1rem}
 @media(max-width:420px){.lineage li{grid-template-columns:2.5rem minmax(0,1fr);gap:.5rem}.generation{width:2.5rem}.lineage li:not(:last-child)::after{left:1.2rem}.person{padding:.7rem}.genealogy{padding-top:.5rem}}
 </style>

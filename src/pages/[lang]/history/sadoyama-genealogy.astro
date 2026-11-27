@@ -53,18 +53,19 @@ const people=[
         <p><a href="https://www.okinawatimes.co.jp/articles/-/1975351" target="_blank" rel="noopener noreferrer">{en?'Okinawa Times — related article (Japanese)':'沖縄タイムス｜関連報道記事'}</a></p>
       </div>
       <h3>{en?'A possible connection between family branches':'安伯を共通祖先とする二つの系統（調査仮説）'}</h3>
-      <p>{en?'The English family chart lists Anbun Sadoyama (1870–1962, ID N*) in generation 14, based on the chart’s letter system. The reunion brought together descendants of Anbun’s daughters Umito and Tsuruko. A handwritten addition to the English chart suggests that the two branches may share a common ancestor at Anpuku (generation 12, L*). This connection still needs to be checked against the Japanese family records.':'英語版系図には、安文（Anbun Sadoyama、1870–1962、識別番号 N*）が記載されています。識別番号の規則から十四世と考えられますが、世代の数え方には確認の余地があります。今回の集いは安文の娘であるウミトとツルコの子孫たちの交流の場でした。英語版系図への手書きの追記から、要に至る系統と十二世・安伯（L*）を共通祖先とする可能性が浮かび上がりました。この分岐点は暫定的な調査仮説であり、日本語家譜との照合が必要です。'}</p>
+      <p>{en?'The English family chart lists Anbun Sadoyama (1870–1962, ID N*) in generation 14, based on the chart’s letter system.':'英語版系図には、安文（Anbun Sadoyama、1870–1962、識別番号 N*）が記載されています。識別番号の規則から十四世と考えられますが、世代の数え方には確認の余地があります。'}</p>
+      <figure class="reunion-connection"><img src="/0AA77F8B-58F9-4523-AD88-D68017B7A673.png" alt={en?'The connection between Kaname Sadoyama and the descendants of Umito and Tsuruko':'佐渡山要とウミトとツルコの子孫たちの繋がり'} loading="lazy" decoding="async"/><figcaption>{en?'Sadoyama Family Reunion 2026 — Record 1: The connection between Kaname Sadoyama and the descendants of Umito and Tsuruko':'佐渡山家の集い2026・記録 1：佐渡山要とウミトとツルコの子孫たちの繋がり'}</figcaption></figure>
+      <p>{en?'The reunion brought together descendants of Anbun’s daughters Umito and Tsuruko. A handwritten addition to the English chart suggests that the two branches may share a common ancestor at Anpuku (generation 12, L*). This connection still needs to be checked against the Japanese family records.':'今回の集いは安文の娘であるウミトとツルコの子孫たちの交流の場でした。英語版系図への手書きの追記から、要に至る系統と十二世・安伯（L*）を共通祖先とする可能性が浮かび上がりました。この分岐点は暫定的な調査仮説であり、日本語家譜との照合が必要です。'}</p>
       <p class="detail">{en?'Sources: Sadoyama Family Reunion 2026 booklet, “How It All Came About…”, the English family chart (October 2026), and family information provided on November 27, 2026. The Japanese spelling 安文 is supplied by the family; the historical written form is not yet independently verified.':'出典：Sadoyama Family Reunion 2026 冊子「How It All Came About…」、2026年10月作成の英語版系図、2026年11月27日の家族提供情報。「安文」の漢字表記は家族提供情報で、原史料との照合は未完了です。'}</p>
     </section>
     <section class="reunion-gallery">
       <h2>{en?'Scenes from the reunion':'佐渡山家の集いの記録'}</h2>
       <p>{en?'Photographs of the November 26, 2026 reunion and the genealogy charts. Some images have been edited for readability and privacy. The handwritten branch is a research hypothesis, not a confirmed historical record.':'2026年11月26日の集いの会場風景と系図の記録です。一部の画像は見やすさや個人情報保護のために加工しています。手書きの分岐は確定史料ではなく調査仮説です。'}</p>
       {[
-        ["0AA77F8B-58F9-4523-AD88-D68017B7A673.png","佐渡山要とウミトとツルコの子孫たちの繋がり","The connection between Kaname Sadoyama and the descendants of Umito and Tsuruko"],
         ["7D5265E2-32B1-4CAF-B1F5-474521454E02.png","会場に集った一族の様子","Family members gathered at the reunion venue"],
         ["A1E3E90B-DFFF-46C7-A93F-88EE63A0EED9.png","会場に展示された佐渡山家の英語版家系図","The English-language Sadoyama family tree displayed at the venue"],
         ["BD00F45F-27E0-4624-87DD-920F5DD1145B.png","家系図に自分の情報を書き込んでいる様子","Adding my own information to the family tree"]
-      ].map(([file,ja,english],i)=><figure><img src={'/'+file} alt={en?english:ja} loading="lazy" decoding="async"/><figcaption>{en?'Sadoyama Family Reunion 2026 — Record '+(i+1)+': '+english:'佐渡山家の集い2026・記録 '+(i+1)+'：'+ja}</figcaption></figure>)}
+      ].map(([file,ja,english],i)=><figure><img src={'/'+file} alt={en?english:ja} loading="lazy" decoding="async"/><figcaption>{en?'Sadoyama Family Reunion 2026 — Record '+(i+2)+': '+english:'佐渡山家の集い2026・記録 '+(i+2)+'：'+ja}</figcaption></figure>)}
     </section>
     <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
     <ol class="lineage">
@@ -105,6 +106,6 @@ h3{font-size:1.18rem;line-height:1.4;margin:0}
 .source-id{font-family:monospace;font-size:.82rem;border:1px solid #84968a66;padding:.05rem .4rem;border-radius:4px}
 .kafu-cover{margin:1.5rem auto;max-width:460px;text-align:center}.kafu-cover img{display:block;width:100%;height:auto;border:1px solid #84968a66;border-radius:5px}.kafu-cover figcaption{font-size:.85em;margin-top:.6rem}
 .reunion{border:1px solid #84968a66;border-radius:10px;padding:1.2rem;margin:1.6rem 0}.reunion h2{margin:.4rem 0 1rem}.reunion h3{margin:1.2rem 0 .6rem}.reunion p{margin:.6rem 0}
-.reunion-gallery{margin:2rem 0}.reunion-gallery figure{margin:1.2rem 0}.reunion-gallery img{width:100%;height:auto;display:block;border-radius:6px}.reunion-gallery figcaption{font-size:.85em;margin-top:.5rem}.sources{border-top:1px solid #84968a66;margin-top:1rem}
+.reunion-gallery{margin:2rem 0}.reunion-connection,.reunion-gallery figure{margin:1.2rem 0}.reunion-connection img,.reunion-gallery img{width:100%;height:auto;display:block;border-radius:6px}.reunion-connection figcaption,.reunion-gallery figcaption{font-size:.85em;margin-top:.5rem}.sources{border-top:1px solid #84968a66;margin-top:1rem}
 @media(max-width:420px){.lineage li{grid-template-columns:2.5rem minmax(0,1fr);gap:.5rem}.generation{width:2.5rem}.lineage li:not(:last-child)::after{left:1.2rem}.person{padding:.7rem}.genealogy{padding-top:.5rem}}
 </style>

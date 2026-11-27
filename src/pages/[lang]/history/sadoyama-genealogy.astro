@@ -59,7 +59,12 @@ const people=[
     <section class="reunion-gallery">
       <h2>{en?'Scenes from the reunion':'佐渡山家の集いの記録'}</h2>
       <p>{en?'Photographs of the November 26, 2026 reunion and the genealogy charts. Some images have been edited for readability and privacy. The handwritten branch is a research hypothesis, not a confirmed historical record.':'2026年11月26日の集いの会場風景と系図の記録です。一部の画像は見やすさや個人情報保護のために加工しています。手書きの分岐は確定史料ではなく調査仮説です。'}</p>
-      {["0AA77F8B-58F9-4523-AD88-D68017B7A673.png","7D5265E2-32B1-4CAF-B1F5-474521454E02.png","A1E3E90B-DFFF-46C7-A93F-88EE63A0EED9.png","BD00F45F-27E0-4624-87DD-920F5DD1145B.png"].map((file,i)=><figure><img src={'/'+file} alt={i===3?(en?'Adding my own information to the family tree.':'家系図に自分の情報を書き込んでいる様子'):(en?'Sadoyama Family Reunion 2026 — photograph '+(i+1):'佐渡山家の集い2026・記録写真 '+(i+1))} loading="lazy" decoding="async"/><figcaption>{i===3?(en?'Adding my own information to the family tree.':'家系図に自分の情報を書き込んでいる様子'):(en?'Sadoyama Family Reunion 2026 — '+(i+1):'佐渡山家の集い2026・記録 '+(i+1))}</figcaption></figure>)}
+      {[
+        ["0AA77F8B-58F9-4523-AD88-D68017B7A673.png","佐渡山家の集いの会場風景","A view of the Sadoyama family reunion venue"],
+        ["7D5265E2-32B1-4CAF-B1F5-474521454E02.png","親族が家系図を通じて互いのルーツを確認する様子","Relatives exploring their shared roots through family trees"],
+        ["A1E3E90B-DFFF-46C7-A93F-88EE63A0EED9.png","会場に展示された佐渡山家の英語版家系図","The English-language Sadoyama family tree displayed at the venue"],
+        ["BD00F45F-27E0-4624-87DD-920F5DD1145B.png","家系図に自分の情報を書き込んでいる様子","Adding my own information to the family tree"]
+      ].map(([file,ja,english],i)=><figure><img src={'/'+file} alt={en?english:ja} loading="lazy" decoding="async"/><figcaption>{en?'Sadoyama Family Reunion 2026 — Record '+(i+1)+': '+english:'佐渡山家の集い2026・記録 '+(i+1)+'：'+ja}</figcaption></figure>)}
     </section>
     <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
     <ol class="lineage">

@@ -113,16 +113,14 @@ const ansonSources = [
     </section>
     <h2>{en?'The seventeen generations':'17世代の系譜'}</h2>
     <ol class="lineage">
-      {people.map(([id,ja,roman,cn,noteJa,noteEn],i)=><li class:list={[i>=9&&i<=15?'pending':'',i===5?'branch':'']}>
+      {people.map(([id,ja,roman,cn,noteJa,noteEn],i)=><li class:list={[i>=9&&i<=15?'pending':'',i===5?'branch':'']} id={id==='HD'?'anson':undefined}>
         <span class="generation">{String(i+1).padStart(2,'0')}<small>{en?'GEN':'世'}</small></span>
-        <div class="person"><div class="person-top"><h3>{id==='HD' ? <button class="profile-trigger" type="button" data-anson-profile aria-haspopup="dialog" aria-controls="anson-profile">{en?'Anson (安尊)':ja}<span>{en?'Profile':'人物史料'}</span></button> : en?roman:ja}</h3>{id&&<span class="source-id">{id}</span>}</div><p class="alternate" lang={en?'ja':'en'}>{en?ja:roman}</p>{cn&&<p class="chinese">{en?'Chinese-style name: ':'唐名：'}{cn}</p>}{(en?noteEn:noteJa)&&<p class="detail">{en?noteEn:noteJa}</p>}</div>
+        <div class="person"><div class="person-top"><h3>{id==='HD' ? <a class="profile-trigger" href="#anson-note" data-anson-profile>{en?'Anson (安尊)':ja}<span>{en?'Read profile':'人物史料を読む'}</span></a> : en?roman:ja}</h3>{id&&<span class="source-id">{id}</span>}</div><p class="alternate" lang={en?'ja':'en'}>{en?ja:roman}</p>{cn&&<p class="chinese">{en?'Chinese-style name: ':'唐名：'}{cn}</p>}{(en?noteEn:noteJa)&&<p class="detail">{en?noteEn:noteJa}</p>}</div>
       </li>)}
     </ol>
-    <dialog id="anson-profile" class="profile-dialog" aria-labelledby="anson-profile-title">
-      <div class="profile-header">
-        <h2 id="anson-profile-title">{en?'Anson Sadoyama (安尊)':'佐渡山 安尊（毛九経）'}</h2>
-        <form method="dialog"><button type="submit" class="profile-close" autofocus>{en?'Close':'閉じる'}</button></form>
-      </div>
+    <section id="anson-note" class="profile-inline" aria-labelledby="anson-note-title">
+      <h2 id="anson-note-title">{en?'Anson Sadoyama (安尊)':'佐渡山 安尊（毛九経）'}</h2>
+      <div data-anson-content>
       <p>{en?'A Ryukyu Kingdom envoy to Qing China and later to Satsuma. Historical records identify him as 毛九經, 野里親雲上安尊 and 佐渡山親方安尊.':'琉球王府から清へ進貢使節として渡り、のちに薩摩へも派遣された人物です。史料には「毛九経」「野里親雲上安尊」「佐渡山親方安尊」と登場します。'}</p>
       <ol class="profile-timeline">
         {ansonTimeline.map(([year,ja,english]) => <li><strong>{year}</strong><p>{en?english:ja}</p></li>)}
@@ -132,6 +130,15 @@ const ansonSources = [
       <ul class="profile-sources">
         {ansonSources.map(([href,ja,english]) => <li><a href={href}>{en?english:ja}</a></li>)}
       </ul>
+      </div>
+      <p><a href="#anson">{en?'Back to the family tree':'系譜の「安尊」に戻る'}</a></p>
+    </section>
+    <dialog id="anson-profile" class="profile-dialog" aria-labelledby="anson-profile-title">
+      <div class="profile-header">
+        <h2 id="anson-profile-title">{en?'Anson Sadoyama (安尊)':'佐渡山 安尊（毛九経）'}</h2>
+        <form method="dialog"><button type="submit" class="profile-close" autofocus>{en?'Close':'閉じる'}</button></form>
+      </div>
+      <div data-anson-dialog-body></div>
     </dialog>
     <section class="sources"><h2>{en?'Sources and limits':'出典と検証状況'}</h2>
       <p>{en?'Family genealogy charts in Japanese (including 毛姓佐渡山家支流世系図 and the stamped chart P03), Ancestors of the Sadoyama Family (Roy Takemoto, October 2026), and family corrections supplied in November 2026. This page is based on genealogy draft version 14 and later corrections. The original family records have not been independently verified.':'日本語系図（毛姓佐渡山家支流世系図、印影のあるP03等）、英語版 Ancestors of the Sadoyama Family（Roy Takemoto、2026年10月）、2026年11月の家族提供訂正情報。第14版調査資料とその後の訂正をもとにした公開用スナップショットです。家譜原本の独立検証は未実施です。'}</p>
@@ -167,6 +174,10 @@ h3{font-size:1.18rem;line-height:1.4;margin:0}
 .reunion{border:1px solid #84968a66;border-radius:10px;padding:1.2rem;margin:1.6rem 0}.reunion h2{margin:.4rem 0 1rem}.reunion h3{margin:1.2rem 0 .6rem}.reunion p{margin:.6rem 0}
 .reunion-gallery{margin:2rem 0}.reunion-connection,.reunion-gallery figure{margin:1.2rem 0}.reunion-connection img,.reunion-gallery img{width:100%;height:auto;display:block;border-radius:6px}.reunion-connection figcaption,.reunion-gallery figcaption{font-size:.85em;margin-top:.5rem}.sources{border-top:1px solid #84968a66;margin-top:1rem}
 @media(max-width:420px){.lineage li{grid-template-columns:2.5rem minmax(0,1fr);gap:.5rem}.generation{width:2.5rem}.lineage li:not(:last-child)::after{left:1.2rem}.person{padding:.7rem}.genealogy{padding-top:.5rem}}
+#anson,#anson-note{scroll-margin-top:5rem}
+.profile-inline{margin:1.5rem 0;padding:clamp(.9rem,4vw,1.6rem);border:1px solid #84968a;border-radius:12px;overflow-wrap:anywhere}
+.profile-inline:not(:target){display:none}
+.profile-inline h2{margin-top:0}
 .profile-trigger{font:inherit;color:inherit;background:none;border:0;padding:.35rem 0;min-height:44px;cursor:pointer;text-align:start;text-decoration:underline;text-underline-offset:.22em;display:inline-flex;align-items:center;flex-wrap:wrap;gap:.45rem}
 .profile-trigger span{font-size:.72em;text-decoration:none;border:1px solid #84968a;border-radius:.35rem;padding:.1em .4em}
 .profile-trigger:focus-visible,.profile-close:focus-visible{outline:2px solid currentColor;outline-offset:3px}
@@ -183,13 +194,22 @@ h3{font-size:1.18rem;line-height:1.4;margin:0}
 :global(html:has(#anson-profile[open])){overflow:hidden}
 </style>
 <script>
-  const trigger = document.querySelector<HTMLButtonElement>('[data-anson-profile]');
+  const trigger = document.querySelector<HTMLAnchorElement>('[data-anson-profile]');
   const profile = document.querySelector<HTMLDialogElement>('#anson-profile');
-  if (trigger && profile) {
-    trigger.addEventListener('click', () => {
-      if (!profile.open) profile.showModal();
+  const content = document.querySelector('[data-anson-content]');
+  const body = document.querySelector('[data-anson-dialog-body]');
+  if (trigger && profile && content && body && typeof profile.showModal === 'function') {
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.addEventListener('click', (event) => {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      try {
+        if (!body.hasChildNodes()) body.append(content.cloneNode(true));
+        if (!profile.open) profile.showModal();
+        if (profile.open) event.preventDefault();
+      } catch {
+        // Leave the link's default navigation in place so the inline profile remains available.
+      }
     });
     profile.addEventListener('close', () => trigger.focus({ preventScroll: true }));
   }
 </script>
-

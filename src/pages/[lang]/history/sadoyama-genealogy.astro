@@ -178,14 +178,25 @@ h3{font-size:1.18rem;line-height:1.4;margin:0}
 .profile-inline{margin:1.5rem 0;padding:clamp(.9rem,4vw,1.6rem);border:1px solid #84968a;border-radius:12px;overflow-wrap:anywhere}
 .profile-inline:not(:target){display:none}
 .profile-inline h2{margin-top:0}
+.profile-inline,.profile-dialog{
+  --profile-bg:var(--bg,#fff);
+  --profile-text:var(--text,#333);
+  --profile-link:var(--link,#1a1a2e);
+  background-color:var(--profile-bg);
+  color:var(--profile-text);
+  color-scheme:light;
+}
+:global(body[data-theme='dark']) :is(.profile-inline,.profile-dialog){color-scheme:dark}
+:is(.profile-inline,.profile-dialog) :is(h2,h3,p,li){color:var(--profile-text)}
+:is(.profile-inline,.profile-dialog) a{color:var(--profile-link);text-decoration:underline;text-underline-offset:.18em}
 .profile-trigger{font:inherit;color:inherit;background:none;border:0;padding:.35rem 0;min-height:44px;cursor:pointer;text-align:start;text-decoration:underline;text-underline-offset:.22em;display:inline-flex;align-items:center;flex-wrap:wrap;gap:.45rem}
 .profile-trigger span{font-size:.72em;text-decoration:none;border:1px solid #84968a;border-radius:.35rem;padding:.1em .4em}
 .profile-trigger:focus-visible,.profile-close:focus-visible{outline:2px solid currentColor;outline-offset:3px}
-.profile-dialog{box-sizing:border-box;width:min(42rem,calc(100% - 1.5rem));max-height:calc(100dvh - 1.5rem);overflow:auto;overscroll-behavior:contain;padding:clamp(.9rem,4vw,1.6rem);border:1px solid #84968a;border-radius:12px;background:Canvas;color:CanvasText;overflow-wrap:anywhere}
+.profile-dialog{box-sizing:border-box;width:min(42rem,calc(100% - 1.5rem));max-height:calc(100dvh - 1.5rem);overflow:auto;overscroll-behavior:contain;padding:clamp(.9rem,4vw,1.6rem);border:1px solid #84968a;border-radius:12px;overflow-wrap:anywhere}
 .profile-dialog::backdrop{background:#09110dcc}
 .profile-header{display:flex;align-items:center;justify-content:space-between;gap:.6rem}
 .profile-header h2{margin:0;line-height:1.35}
-.profile-close{font:inherit;min-height:44px;white-space:nowrap;padding:.35rem .65rem;border:1px solid currentColor;border-radius:.4rem;background:Canvas;color:CanvasText;cursor:pointer}
+.profile-close{font:inherit;min-height:44px;white-space:nowrap;padding:.35rem .65rem;border:1px solid currentColor;border-radius:.4rem;background:var(--profile-bg);color:var(--profile-text);cursor:pointer}
 .profile-timeline{padding:0;list-style:none}
 .profile-timeline li{border-inline-start:2px solid #84968a;padding-inline-start:.8rem;margin:.8rem 0}
 .profile-timeline p{margin:.2rem 0}

@@ -2,6 +2,10 @@
 interface Props {
   title: string;
   description?: string;
+  seoTitle?: string;
+  image?: string;
+  imageAlt?: string;
+  article?: { datePublished: string; dateModified?: string };
   lang?: 'ja' | 'en';
   jpHref?: string;
   enHref?: string;
@@ -21,14 +25,44 @@ const description = Astro.props.description ?? (
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
 const jpUrl = new URL(jpHref, Astro.site);
 const enUrl = new URL(enHref, Astro.site);
+const seoTitle = Astro.props.seoTitle ?? title;
+const siteName = isEnglish ? 'Ryukyu no Tane' : '琉球のタネ';
+const fullTitle = seoTitle === siteName ? siteName : `${seoTitle} | ${siteName}`;
+const imageUrl = Astro.props.image ? new URL(Astro.props.image, Astro.site).href : undefined;
+const article = Astro.props.article;
+const structuredData = article ? {
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: title, description, inLanguage: lang,
+  url: canonicalUrl.href, mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl.href },
+  datePublished: article.datePublished, dateModified: article.dateModified ?? article.datePublished,
+  publisher: { '@type': 'Organization', name: siteName, url: new URL(isEnglish ? '/en/' : '/ja/', Astro.site).href },
+  ...(imageUrl ? { image: [imageUrl] } : {}),
+} : {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  name: title, description, inLanguage: lang, url: canonicalUrl.href,
+  isPartOf: { '@type': 'WebSite', name: siteName, url: new URL('/', Astro.site).href },
+};
 ---
 <!DOCTYPE html>
 <html lang={lang}>
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title} | {isEnglish ? 'Ryukyu no Tane' : '琉球のタネ'}</title>
+  <title>{fullTitle}</title>
   <meta name="description" content={description} />
+  <meta property="og:type" content={article ? "article" : "website"} />
+  <meta property="og:title" content={fullTitle} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonicalUrl.href} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:locale" content={isEnglish ? "en_US" : "ja_JP"} />
+  {imageUrl && <meta property="og:image" content={imageUrl} />}
+  {imageUrl && Astro.props.imageAlt && <meta property="og:image:alt" content={Astro.props.imageAlt} />}
+  <meta name="twitter:card" content={imageUrl ? "summary_large_image" : "summary"} />
+  <meta name="twitter:title" content={fullTitle} />
+  <meta name="twitter:description" content={description} />
+  {imageUrl && <meta name="twitter:image" content={imageUrl} />}
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, "\\u003c")} />
   <link rel="canonical" href={canonicalUrl} />
   <link rel="alternate" hreflang="ja" href={jpUrl} />
   <link rel="alternate" hreflang="en" href={enUrl} />
